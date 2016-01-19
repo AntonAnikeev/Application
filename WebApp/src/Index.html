@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="test">
+<head lang="ru">
+    <script src="js/main.js"></script>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Test app</title>
+</head>
+<body>
+    <section ng-controller="myController">
+        <div>{{Name}}</div>
+        Name:<div ng-bind="Name"></div>
+        <input type="submit" value="Submit" ng-click="TestClick()"/>
+    </section>
+
+<section class="header" ng-controller="signalRController">
+    Header
+    <input type="submit" value="Submit" ng-click="StartSignalR()"/>
+</section>
+<section class="content">
+    Content
+</section>
+<section class="footer">
+    Hello
+</section>
+</body>
+</html>
