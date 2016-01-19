@@ -160,3 +160,4 @@ Ag.Pricing/AG.Pricing.DB/Local.publish.xml
 .idea/
 
 WebApp/node_modules/*
+WebApp/bower_components/*
