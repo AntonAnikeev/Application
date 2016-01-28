@@ -3,14 +3,9 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     watch = require('gulp-watch'),
-    prefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
-    //sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    rigger = require('gulp-rigger'),
     cssmin = require('gulp-minify-css'),
-    //imagemin = require('gulp-imagemin'),
-    //pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload;
@@ -70,40 +65,7 @@ gulp.task('js:build', function () {
         .pipe(uglify())//офусцирует файл
         .pipe(gulp.dest(path.build.js))//переложит файл по указанному пути
         .pipe(reload({stream: true}));// перегрузит
-    //gulp.src(path.src.js) //Найдем наш main файл
-    //    //.pipe(rigger()) //Прогоним через rigger
-    //    //.pipe(sourcemaps.init()) //Инициализируем sourcemap
-    //    //.pipe(uglify()) //Сожмем наш js
-    //    //.pipe(sourcemaps.write()) //Пропишем карты
-    //    //.pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
-    //    //.pipe(reload({stream: true})); //И перезагрузим сервер
-    //    .pipe(uglify('app.min.js', {
-    //        outSourceMap: true
-    //    }))
-    //    .pipe(gulp.dest(path.build.js))
-    //
 });
-
-//gulp.task('libs:build', function () {
-//
-//    gulp.src(path.src.libs)
-//        .pipe(concat('libs.min.js'))//все файлы соберед в один с указанным именем
-//        //.pipe(uglify())//офусцирует файл
-//        .pipe(gulp.dest(path.build.libs))//переложит файл по указанному пути
-//        .pipe(reload({stream: true}));// перегрузит
-//    //gulp.src(path.src.js) //Найдем наш main файл
-//    //    //.pipe(rigger()) //Прогоним через rigger
-//    //    //.pipe(sourcemaps.init()) //Инициализируем sourcemap
-//    //    //.pipe(uglify()) //Сожмем наш js
-//    //    //.pipe(sourcemaps.write()) //Пропишем карты
-//    //    //.pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
-//    //    //.pipe(reload({stream: true})); //И перезагрузим сервер
-//    //    .pipe(uglify('app.min.js', {
-//    //        outSourceMap: true
-//    //    }))
-//    //    .pipe(gulp.dest(path.build.js))
-//    //
-//});
 
 gulp.task('libs:build', function() {
     return streamqueue({ objectMode: true },
@@ -123,13 +85,6 @@ gulp.task('style:build', function () {
 		.pipe(uglify())//офусцирует файл
         .pipe(gulp.dest(path.build.css))//переложит файл по указанному пути
         .pipe(reload({stream: true}));
-        // .pipe(sourcemaps.init()) //То же самое что и с js
-        //.pipe(sass()) //Скомпилируем
-        // .pipe(prefixer()) //Добавим вендорные префиксы
-        // .pipe(cssmin()) //Сожмем
-        // .pipe(sourcemaps.write())
-        // .pipe(gulp.dest(path.build.css)) //И в build
-        // .pipe(reload({stream: true}));
 });
 
 gulp.task('build', [
@@ -137,8 +92,6 @@ gulp.task('build', [
     'js:build',
     'style:build',
     'libs:build'
-    //'fonts:build',
-    //'image:build'
 ]);
 
 gulp.task('watch', function(){
@@ -154,12 +107,6 @@ gulp.task('watch', function(){
     watch([path.watch.libs], function(event, cb) {
         gulp.start('libs:build');
     });
-    //watch([path.watch.img], function(event, cb) {
-    //    gulp.start('image:build');
-    //});
-    //watch([path.watch.fonts], function(event, cb) {
-    //    gulp.start('fonts:build');
-    //});
 });
 
 gulp.task('webserver', function () {
