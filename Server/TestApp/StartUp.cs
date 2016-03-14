@@ -3,6 +3,7 @@
 //  stored, or distributed only in accordance with a written license
 //  agreement and with the inclusion of this copyright notice. 
 
+using System.Web.Http;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.Owin.Cors;
@@ -14,8 +15,14 @@ namespace TestApp
     {
         public void Configuration(IAppBuilder app)
         {
+            var config = new HttpConfiguration();
+            //SignalR
             app.UseCors(CorsOptions.AllowAll);
             app.MapSignalR();
+
+            //WebApi
+            config.MapHttpAttributeRoutes();
+            app.UseWebApi(config);
         }
     }
 
