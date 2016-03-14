@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     cssmin = require('gulp-minify-css'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
+    gulpLess = require("gulp-less"),
     reload = browserSync.reload;
 
 var streamqueue  = require('streamqueue');
@@ -24,7 +25,7 @@ var path = {
     src: {
         html: 'src/*.html',
         js: 'src/scripts/**/*.js',
-        style: 'src/styles/**/.css',
+        style: 'src/styles/**/*.css',
         img: 'src/imgs/**/*.*',
         fonts: 'src/fonts/**/*.*',
         libs: 'bower_components/**/*.min.js'
@@ -61,8 +62,8 @@ gulp.task('html:build', function () {
 gulp.task('js:build', function () {
 
     gulp.src(path.src.js)
-        .pipe(concat('app.min.js'))//все файлы соберед в один с указанным именем
-        .pipe(uglify())//офусцирует файл
+        .pipe(concat('app.js'))//все файлы соберед в один с указанным именем
+        //.pipe(uglify())//офусцирует файл
         .pipe(gulp.dest(path.build.js))//переложит файл по указанному пути
         .pipe(reload({stream: true}));// перегрузит
 });
@@ -71,18 +72,21 @@ gulp.task('libs:build', function() {
     return streamqueue({ objectMode: true },
         gulp.src('bower_components/jquery/dist/jquery.js'),
         gulp.src('bower_components/angular/angular.js'),
+        gulp.src('bower_components/bootstrap/dist/js/bootstrap.js'),
         gulp.src('path.src.libs')
     )
-        .pipe(concat('libs.min.js'))
+        .pipe(concat('libs.js'))
         .pipe(gulp.dest(path.build.libs))
         .pipe(reload({stream: true}));
 });
 
 
 gulp.task('style:build', function () {
-    gulp.src(path.src.style) //Выберем наш main.scss
+    return streamqueue({ objectMode: true },
+        gulp.src('bower_components/bootstrap/dist/css/*.css'),
+        gulp.src('path.src.style')
+    )
 	    .pipe(concat('app.css'))
-		.pipe(uglify())//офусцирует файл
         .pipe(gulp.dest(path.build.css))//переложит файл по указанному пути
         .pipe(reload({stream: true}));
 });
