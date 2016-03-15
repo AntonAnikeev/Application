@@ -9,14 +9,16 @@ var gulp = require('gulp'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
     gulpLess = require("gulp-less"),
+    flatten = require("gulp-flatten"),
     reload = browserSync.reload;
 
 var streamqueue  = require('streamqueue');
 
+
 var path = {
     build: {
         html: 'build/',
-        htmlPartials: 'build/partials/',
+        htmlPartials: 'build/templates',
         js: 'build/js/',
         css: 'build/css/',
         img: 'build/img/',
@@ -64,9 +66,8 @@ gulp.task('html:build', function () {
 
 gulp.task('htmlPartials:build', function () {
     gulp.src(path.src.htmlPartials) //Выберем файлы по нужному пути
-        //.pipe(concat('index.html'))
-        // .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
+        .pipe(flatten())
+        .pipe(gulp.dest(path.build.htmlPartials)) //Выплюнем их в папку build
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
 
