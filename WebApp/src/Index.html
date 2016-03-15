@@ -12,6 +12,12 @@
     <title>Test app</title>
 </head>
 <body>
+    <div>
+        <li><a ui-sref="index">Home</a></li>
+    </div>
+    <div ui-view="viewA"></div>
+
+
     <button type="button" class=".test btn btn-lg btn-primary">Default</button>
     <section class=".col-md-4" ng-controller="myController">
         <div>{{Name}}</div>
@@ -19,10 +25,10 @@
         <input type="submit" value="Submit" ng-click="TestClick()"/>
     </section>
 
-<section class="header" ng-controller="signalRController">
-    Header
-    <input type="submit" value="Submit" ng-click="StartSignalR()"/>
-</section>
+<!--<section class="header" ng-controller="signalRController">-->
+    <!--Header-->
+    <!--<input type="submit" value="Submit" ng-click="StartSignalR()"/>-->
+<!--</section>-->
 <section class="content">
     Content
 </section>

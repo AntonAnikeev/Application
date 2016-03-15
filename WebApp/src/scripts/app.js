@@ -30,8 +30,24 @@
 ////    });
 ////}]);
 
-var app = angular.module('test', []);
+var app = angular.module('test', ['ui.router']);
 
+app.config(['$stateProvider', function($stateProvider){
+    $stateProvider
+        .state('index',{
+            url:'test',
+            views:{
+                'viewA':{
+                    templateUrl: 'templates/test.tmpl.html'
+                }
+            }
+        });
+
+}]);
+
+//app.controller('mainController',['',function(){
+//
+//}]);
 
 app.controller('myController', ['$scope', function ($scope) {
     $scope.Name = 'signalR';
