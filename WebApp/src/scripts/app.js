@@ -32,7 +32,8 @@
 
 var app = angular.module('test', ['ui.router']);
 
-app.config(['$stateProvider', function ($stateProvider) {
+app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
     $stateProvider
         .state('index', {
             url: 'test',
@@ -43,13 +44,13 @@ app.config(['$stateProvider', function ($stateProvider) {
             }
         })
         .state('default', {
-                url: '',
+                url: '/',
                 views: {
-                    navbarView: 'templates/navbar.tmpl.html'
+                    'navbarView' :{
+                        templateUrl: 'templates/navbar.tmpl.html'
+                    }
                 }
-            }
-        );
-
+            });
 }]);
 
 //app.controller('mainController',['',function(){
