@@ -46,8 +46,14 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$url
         .state('default', {
                 url: '/',
                 views: {
-                    'navbarView' :{
-                        templateUrl: 'templates/navbar.tmpl.html'
+                    'headerView' :{
+                        templateUrl: 'templates/header.tmpl.html'
+                    },
+                    'fotterView': {
+                        templateUrl: 'templates/footer.tmpl.html'
+                    },
+                    'mainContextView':{
+                        templateUrl: 'templates/mainContext.tmpl.html'
                     }
                 }
             });

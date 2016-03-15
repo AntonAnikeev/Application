@@ -1,0 +1,12 @@
+<div>
+    <li><a ui-sref="index">Home</a></li>
+</div>
+<div ui-view="viewA"></div>
+
+
+<button type="button" class=".test btn btn-lg btn-primary">Default</button>
+<section class=".col-md-4" ng-controller="myController">
+    <div>{{Name}}</div>
+    Name:<div ng-bind="Name"></div>
+    <input type="submit" value="Submit" ng-click="TestClick()"/>
+</section>
