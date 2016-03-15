@@ -35,14 +35,6 @@ var app = angular.module('test', ['ui.router']);
 app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-        .state('index', {
-            url: 'test',
-            views: {
-                'viewA': {
-                    templateUrl: 'templates/test.tmpl.html'
-                }
-            }
-        })
         .state('default', {
                 url: '/',
                 views: {
@@ -53,18 +45,18 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$url
                         templateUrl: 'templates/footer.tmpl.html'
                     },
                     'mainContextView':{
-                        templateUrl: 'templates/mainContext.tmpl.html'
+                        templateUrl: 'templates/mainContext.tmpl.html',
                     }
                 }
+            })
+            .state('default.index', {
+                url: '/test',
+                templateUrl:'templates/test.tmpl.html'
             });
 }]);
 
-//app.controller('mainController',['',function(){
-//
-//}]);
-
 app.controller('myController', ['$scope', function ($scope) {
-    $scope.Name = 'signalR';
+    $scope.Name = 'MyTestApplication';
 
     $scope.TestClick = function () {
         $scope.test = 'test';
