@@ -32,16 +32,23 @@
 
 var app = angular.module('test', ['ui.router']);
 
-app.config(['$stateProvider', function($stateProvider){
+app.config(['$stateProvider', function ($stateProvider) {
     $stateProvider
-        .state('index',{
-            url:'test',
-            views:{
-                'viewA':{
+        .state('index', {
+            url: 'test',
+            views: {
+                'viewA': {
                     templateUrl: 'templates/test.tmpl.html'
                 }
             }
-        });
+        })
+        .state('default', {
+                url: '',
+                views: {
+                    navbarView: 'templates/navbar.tmpl.html'
+                }
+            }
+        );
 
 }]);
 
@@ -52,7 +59,7 @@ app.config(['$stateProvider', function($stateProvider){
 app.controller('myController', ['$scope', function ($scope) {
     $scope.Name = 'signalR';
 
-    $scope.TestClick = function(){
+    $scope.TestClick = function () {
         $scope.test = 'test';
     };
 }]);
