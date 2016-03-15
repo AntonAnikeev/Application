@@ -16,6 +16,7 @@ var streamqueue  = require('streamqueue');
 var path = {
     build: {
         html: 'build/',
+        htmlPartials: 'build/partials/',
         js: 'build/js/',
         css: 'build/css/',
         img: 'build/img/',
@@ -24,6 +25,7 @@ var path = {
     },
     src: {
         html: 'src/*.html',
+        htmlPartials: 'src/**/*.tmpl.html',
         js: 'src/scripts/**/*.js',
         style: 'src/styles/**/*.css',
         img: 'src/imgs/**/*.*',
@@ -32,6 +34,7 @@ var path = {
     },
     watch: {
         html: 'src/*.html',
+        htmlPartials: 'src/**/*.tmpl.html',
         js: 'src/scripts/**/*.js',
         style: 'src/styles/**/*.css',
         img: 'src/imgs/**/*.*',
@@ -54,6 +57,14 @@ var config = {
 gulp.task('html:build', function () {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
 		.pipe(concat('index.html'))
+        // .pipe(rigger()) //Прогоним через rigger
+        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
+        .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+});
+
+gulp.task('htmlPartials:build', function () {
+    gulp.src(path.src.htmlPartials) //Выберем файлы по нужному пути
+        //.pipe(concat('index.html'))
         // .pipe(rigger()) //Прогоним через rigger
         .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
@@ -93,6 +104,7 @@ gulp.task('style:build', function () {
 
 gulp.task('build', [
     'html:build',
+    'htmlPartials:build',
     'js:build',
     'style:build',
     'libs:build'
@@ -101,6 +113,9 @@ gulp.task('build', [
 gulp.task('watch', function(){
     watch([path.watch.html], function(event, cb) {
         gulp.start('html:build');
+    });
+    watch([path.watch.htmlPartials], function(event, cb) {
+        gulp.start('htmlPartials:build');
     });
     watch([path.watch.style], function(event, cb) {
         gulp.start('style:build');
