@@ -161,3 +161,4 @@ Ag.Pricing/AG.Pricing.DB/Local.publish.xml
 
 WebApp/node_modules/*
 WebApp/bower_components/*
+WebApp/build
