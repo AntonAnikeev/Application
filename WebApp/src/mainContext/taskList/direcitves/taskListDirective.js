@@ -4,13 +4,15 @@
 angular.module('mainContext')
     .directive('taskListDirective',function(){
         return {
-            restrict : "E",
+            restrict : "EA",
             templateUrl: 'templates/taskList.tmpl.html',
+            //template:'<div><div>{{tasks}}</div></div>',
+            replace: false,
             scope:{
-                tasks: "&"
+                tasks: "@"
             },
-            //link: function(scope, iElement, iAttrs){
-            //
-            //}
+            link: function(scope, iElement, iAttrs){
+                console.log(scope.tasks);
+            }
         };
     });
