@@ -6,13 +6,10 @@ angular.module('mainContext')
         return {
             restrict : "EA",
             templateUrl: 'templates/taskList.tmpl.html',
-            //template:'<div><div>{{tasks}}</div></div>',
+            //template:'<div><div>{{tasks[0].name}}</div></div>',
             replace: false,
             scope:{
-                tasks: "@"
-            },
-            link: function(scope, iElement, iAttrs){
-                console.log(scope.tasks);
+                tasks: "="
             }
         };
     });

@@ -3,9 +3,11 @@
  */
 angular.module('mainContext')
     .controller('mainContextController',['$scope','taskService', function($scope,taskService){
-        $scope.getTasks = function(){
-            //return [taskService.getTask('first,10'),taskService.getTask('second,20')];
-            return taskService.getTask('first,10');
+        var createTasks = function() {
+            return [taskService.getTask('first',10), taskService.getTask('second',20)];
         };
+        $scope.getTasks = createTasks();
+            //return taskService.getTask('first,10');
+        //};
     }]);
 
