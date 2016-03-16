@@ -28,7 +28,7 @@ var path = {
     src: {
         html: 'src/*.html',
         htmlPartials: 'src/**/*.tmpl.html',
-        js: 'src/scripts/**/*.js',
+        js: 'src/**/*.js',
         style: 'src/styles/**/*.css',
         img: 'src/imgs/**/*.*',
         fonts: 'src/fonts/**/*.*',
@@ -73,7 +73,11 @@ gulp.task('htmlPartials:build', function () {
 
 gulp.task('js:build', function () {
 
-    gulp.src(path.src.js)
+    //gulp.src(path.src.js)
+    return streamqueue({ objectMode: true },
+        gulp.src(''),
+        gulp.src('path.src.js')
+    )
         .pipe(concat('app.js'))//все файлы соберед в один с указанным именем
         //.pipe(uglify())//офусцирует файл
         .pipe(gulp.dest(path.build.js))//переложит файл по указанному пути

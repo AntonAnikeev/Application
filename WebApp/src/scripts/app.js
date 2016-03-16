@@ -30,7 +30,7 @@
 ////    });
 ////}]);
 
-var app = angular.module('test', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'mainContext']);
 
 app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
