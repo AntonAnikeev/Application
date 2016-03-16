@@ -14,7 +14,6 @@ var gulp = require('gulp'),
 
 var streamqueue  = require('streamqueue');
 
-
 var path = {
     build: {
         html: 'build/',
@@ -72,10 +71,9 @@ gulp.task('htmlPartials:build', function () {
 });
 
 gulp.task('js:build', function () {
-    //gulp.src(path.src.js)
     return streamqueue({ objectMode: true },
         gulp.src('src/scripts/app.js'),
-        gulp.src('path.src.js')
+        gulp.src([path.src.js,'!src/scripts/app.js'])
     )
         .pipe(concat('app.js'))//все файлы соберед в один с указанным именем
         .pipe(gulp.dest(path.build.js))//переложит файл по указанному пути
