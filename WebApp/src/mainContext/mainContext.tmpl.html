@@ -1,4 +1,4 @@
-<div class="container" class="col-md-12">
+<div class="container" class="col-md-12" ng-controller="mainContextController">
     <div class="row">
         <div>
             <li><a ui-sref="default.index">Home</a></li>
@@ -34,6 +34,7 @@
                 </li>
             </ul>
         </div>
+        <div task-list="getTasks()"></div>
     </div>
 </div>
 
