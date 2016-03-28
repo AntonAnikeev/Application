@@ -6,7 +6,7 @@ using ApiContracts;
 namespace API
 {
     [RoutePrefix("api/task-lists")]
-    public class TaskListController: ApiController
+    public class TaskListController : ApiController
     {
         [Route("")]
         [HttpGet]

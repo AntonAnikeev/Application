@@ -7,7 +7,10 @@ using System.Web.Http;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.Owin.Cors;
+using Microsoft.Owin.FileSystems;
+using Microsoft.Owin.StaticFiles;
 using Owin;
+using Swashbuckle.Application;
 
 namespace TestApp
 {
@@ -16,6 +19,11 @@ namespace TestApp
         public void Configuration(IAppBuilder app)
         {
             var config = new HttpConfiguration();
+            var autofacContainer = new AutofacContainer();
+
+            //Autofac resistration
+            app.UseAutofacMiddleware(autofacContainer.Container);
+
             //SignalR
             app.UseCors(CorsOptions.AllowAll);
             app.MapSignalR();
@@ -23,6 +31,27 @@ namespace TestApp
             //WebApi
             config.MapHttpAttributeRoutes();
             app.UseWebApi(config);
+
+            //Swagger
+            config
+                .EnableSwagger(c => c.SingleApiVersion("v1", "A title for your API"))
+                .EnableSwaggerUi();
+
+            //Static Files 
+            var physicalFileSystem = new PhysicalFileSystem(@"build/");
+            var options = new FileServerOptions
+            {
+                EnableDefaultFiles = true,
+                FileSystem = physicalFileSystem
+            };
+            options.StaticFileOptions.FileSystem = physicalFileSystem;
+            options.StaticFileOptions.ServeUnknownFileTypes = true;
+            options.DefaultFilesOptions.DefaultFileNames = new[]
+            {
+                "index.html"
+            };
+
+            app.UseFileServer(options);
         }
     }
 
