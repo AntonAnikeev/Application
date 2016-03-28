@@ -9,7 +9,7 @@ angular.module('mainContext')
             //template:'<div><div>{{tasks[0].name}}</div></div>',
             replace: false,
             scope:{
-                tasks: "="
+                taskLists: "="
             }
         };
     });

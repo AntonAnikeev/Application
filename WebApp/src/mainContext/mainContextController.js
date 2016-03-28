@@ -6,7 +6,7 @@ angular.module('mainContext')
         var createTasks = function() {
             return [taskService.getTask('first',10), taskService.getTask('second',20)];
         };
-        $scope.getTasks = createTasks();
+        $scope.taskListContainer = createTasks();
             //return taskService.getTask('first,10');
         //};
     }]);

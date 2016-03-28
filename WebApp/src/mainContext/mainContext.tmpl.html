@@ -1,14 +1,11 @@
 <div class="container" class="col-md-12" ng-controller="mainContextController">
     <div>Directive</div>
-    <div task-list-directive tasks="getTasks"></div>
-    <div>-----------</div>
+    <div task-list-directive task-lists="taskListContainer"></div>
     <div class="row">
         <div>
             <li><a ui-sref="default.index">Home</a></li>
         </div>
         <div ui-view></div>
-
-        <div>lalalalalal Putin xuylo</div>
 
         <div class="col-md-1"  ng-controller="myController">
             <div>
@@ -19,25 +16,6 @@
                 </b>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="badge">14</span>
-                    Cras justo odio
-                </li>
-                <li class="list-group-item">
-                    <span class="badge">2</span>
-                    Dapibus ac facilisis in
-                </li>
-                <li class="list-group-item">
-                    <span class="badge">1</span>
-                    Morbi leo risus
-                </li>
-            </ul>
-        </div>
-        <div task-list="getTasks()"></div>
     </div>
 </div>
 
