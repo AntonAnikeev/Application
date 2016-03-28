@@ -31,7 +31,7 @@
 ////}]);
 
 angular.module('common',['restangular']);
-angular.module('mainContext',[]);
+angular.module('mainContext',['common']);
 var app = angular.module('app', ['ui.router', 'mainContext', 'common']);
 
 app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
