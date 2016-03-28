@@ -86,6 +86,8 @@ gulp.task('libs:build', function() {
         gulp.src('bower_components/angular/angular.js'),
         gulp.src('bower_components/bootstrap/dist/js/bootstrap.js'),
         gulp.src('bower_components/angular-ui-router/release/angular-ui-router.js'),
+        gulp.src('bower_components/underscore/underscore.js'),
+        gulp.src('bower_components/restangular/src/restangular.js'),
         gulp.src('path.src.libs')
     )
         .pipe(concat('libs.js'))

@@ -3,6 +3,5 @@
  */
 
 angular.module('common')
-    .service('restManager',['',function(){
-        
+    .service('restManager',['Restangular',function(Restangular){
     }]);
