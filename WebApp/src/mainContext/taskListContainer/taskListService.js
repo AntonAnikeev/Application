@@ -8,9 +8,14 @@
 //TakeTheTaskListModel
 
 angular.module('mainContext')
-    .service('taskListService',['',function(){
+    .service('taskListService',['restManager','restRoutesConfig', function(restManager, restRoutesConfig){
         var TaskListModel = function(data)
         {
+            this.name;
+            this.id;
+            this.tasks;
+            this.taskNumber;
+            
             if (data) {
                 this.setData(data);
             }
@@ -21,9 +26,11 @@ angular.module('mainContext')
         };
 
         TaskListModel.prototype.getAll = function(){
-                
+            restManager.getDataList(restRoutesConfig.taskListsRoute)
+                .then(function(taskLists){
+                    return _.map(taskLists,function(taskList){
+                        return new TaskListModel(taskList);
+                            });
+                });
         };
-
-
-
     }]);
