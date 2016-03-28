@@ -5,7 +5,7 @@ angular.module('mainContext')
     .directive('taskListsContainerDirective',function(){
         return {
             restrict : "EA",
-            templateUrl: 'templates/taskList.tmpl.html',
+            templateUrl: 'templates/taskListsContainer.tmpl.html',
             //template:'<div><div>{{tasks[0].name}}</div></div>',
             replace: false,
             scope:{
