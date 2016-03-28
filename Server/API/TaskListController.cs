@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
+using ApiContracts;
 
 
 namespace API
@@ -8,10 +10,25 @@ namespace API
     {
         [Route("")]
         [HttpGet]
-        public void GetAllTaskLists()
+        public List<TaskListDto> GetAllTaskLists()
         {
-            
+            return new List<TaskListDto>
+            {
+                new TaskListDto
+                {
+                    Id = "first",
+                    Name = "FirstList",
+                    TaskNumber = 2,
+                    Tasks = new List<TaskDto>
+                    {
+                        new TaskDto
+                        {
+                            Id = "internal",
+                            Content = "Hello World"
+                        }
+                    }
+                }
+            };
         }
-        
     }
 }
