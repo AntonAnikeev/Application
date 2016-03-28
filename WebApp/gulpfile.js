@@ -4,13 +4,14 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     watch = require('gulp-watch'),
     uglify = require('gulp-uglify'),
-    sourcemaps = require('gulp-sourcemaps'),
     cssmin = require('gulp-minify-css'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
     gulpLess = require("gulp-less"),
     flatten = require("gulp-flatten"),
     reload = browserSync.reload;
+
+var sourcemaps = require('gulp-sourcemaps');
 
 var streamqueue  = require('streamqueue');
 
@@ -75,8 +76,10 @@ gulp.task('js:build', function () {
         gulp.src('src/scripts/app.js'),
         gulp.src([path.src.js,'!src/scripts/app.js'])
     )
+        .pipe(sourcemaps.init())
         .pipe(concat('app.js'))//все файлы соберед в один с указанным именем
         .pipe(gulp.dest(path.build.js))//переложит файл по указанному пути
+        .pipe(sourcemaps.write('./maps'))
         .pipe(reload({stream: true}));// перегрузит
 });
 
