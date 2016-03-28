@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR", "SignalR\SignalR.csproj", "{1A1277B2-94CC-4E03-B988-101DBBBEA859}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{12E695EC-8584-4A83-A9CB-88B609844AB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiContracts", "ApiContracts\ApiContracts.csproj", "{CCB96576-E24D-4887-92FF-17B851E5CB56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{1A1277B2-94CC-4E03-B988-101DBBBEA859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A1277B2-94CC-4E03-B988-101DBBBEA859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A1277B2-94CC-4E03-B988-101DBBBEA859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E695EC-8584-4A83-A9CB-88B609844AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E695EC-8584-4A83-A9CB-88B609844AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E695EC-8584-4A83-A9CB-88B609844AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E695EC-8584-4A83-A9CB-88B609844AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB96576-E24D-4887-92FF-17B851E5CB56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB96576-E24D-4887-92FF-17B851E5CB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB96576-E24D-4887-92FF-17B851E5CB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB96576-E24D-4887-92FF-17B851E5CB56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
