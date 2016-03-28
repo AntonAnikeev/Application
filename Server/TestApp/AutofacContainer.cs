@@ -3,6 +3,7 @@
 //  stored, or distributed only in accordance with a written license
 //  agreement and with the inclusion of this copyright notice. 
 
+using API;
 using Autofac;
 
 namespace TestApp
@@ -14,6 +15,7 @@ namespace TestApp
         public AutofacContainer()
         {
             var builder = new ContainerBuilder();
+            builder.RegisterModule<ApiModule>();
             Container = builder.Build();
         }
 
