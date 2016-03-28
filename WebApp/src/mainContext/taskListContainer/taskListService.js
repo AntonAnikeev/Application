@@ -15,7 +15,7 @@ angular.module('mainContext')
             this.id;
             this.tasks;
             this.taskNumber;
-            
+
             if (data) {
                 this.setData(data);
             }
@@ -25,12 +25,20 @@ angular.module('mainContext')
             return angular.extend(this, data);
         };
 
-        TaskListModel.prototype.getAll = function(){
-            restManager.getDataList(restRoutesConfig.taskListsRoute)
-                .then(function(taskLists){
-                    return _.map(taskLists,function(taskList){
-                        return new TaskListModel(taskList);
-                            });
-                });
+        //TaskListModel.prototype.getAll = function(){
+        //
+        //};
+
+        var model = {
+            getAll: function(){
+                restManager.getDataList(restRoutesConfig.taskListsRoute)
+                    .then(function(taskLists){
+                        return _.map(taskLists,function(taskList){
+                            return new TaskListModel(taskList);
+                        });
+                    });
+            }
         };
+
+        return model;
     }]);

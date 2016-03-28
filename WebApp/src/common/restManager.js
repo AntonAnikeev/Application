@@ -4,7 +4,7 @@
 
 angular.module('common')
     .factory('restManager', ['Restangular', function (Restangular) {
-
+        Restangular.setBaseUrl('/api')
         Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
             //if(response.status === 403) {
             //    });
@@ -29,10 +29,12 @@ angular.module('common')
 
         var updateData = function () {
         };
-        return {
-            getDataList: getDataList(url),
-            getDataEntity:getDataEntity(params),
-            deleteData: deleteData(),
-            updateData: updateData()
+
+        var manager = {
+            getDataList: getDataList,
+            getDataEntity: getDataEntity,
+            deleteData: deleteData,
+            updateData: updateData
         };
+        return manager;
     }]);

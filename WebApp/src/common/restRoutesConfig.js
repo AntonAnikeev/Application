@@ -3,5 +3,5 @@
  */
 angular.module('common')
     .constant('restRoutesConfig', {
-        taskListsRoute: 'taskLists'
+        taskListsRoute: 'task-lists'
     });
