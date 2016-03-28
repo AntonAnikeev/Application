@@ -2,7 +2,7 @@
  * Created by admin on 3/16/2016.
  */
 angular.module('mainContext')
-    .directive('taskListDirective',function(){
+    .directive('taskListsContainerDirective',function(){
         return {
             restrict : "EA",
             templateUrl: 'templates/taskList.tmpl.html',
