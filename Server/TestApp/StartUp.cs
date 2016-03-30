@@ -38,7 +38,7 @@ namespace TestApp
                 .EnableSwaggerUi();
 
             //Static Files 
-            var physicalFileSystem = new PhysicalFileSystem(@"build/");
+            var physicalFileSystem = new PhysicalFileSystem(@"f:\visual_studio_projekts\ApplicationForTest\WebApp\build\");
             var options = new FileServerOptions
             {
                 EnableDefaultFiles = true,
