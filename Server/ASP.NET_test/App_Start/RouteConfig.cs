@@ -13,6 +13,9 @@ namespace ASP.NET_test
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("test", "test", new {controller = "Home", action = "Index"});
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
