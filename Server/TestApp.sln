@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{40452F4E-94A9-481C-8AC4-F9CCDAE0DEDE}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{12E695EC-8584-4A83-A9CB-88B609844AB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiContracts", "ApiContracts\ApiContracts.csproj", "{CCB96576-E24D-4887-92FF-17B851E5CB56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET_test", "ASP.NET_test\ASP.NET_test.csproj", "{7B2F63C1-0DC1-4FE4-870F-28C518D02E5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CCB96576-E24D-4887-92FF-17B851E5CB56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCB96576-E24D-4887-92FF-17B851E5CB56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCB96576-E24D-4887-92FF-17B851E5CB56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2F63C1-0DC1-4FE4-870F-28C518D02E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2F63C1-0DC1-4FE4-870F-28C518D02E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2F63C1-0DC1-4FE4-870F-28C518D02E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2F63C1-0DC1-4FE4-870F-28C518D02E5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
